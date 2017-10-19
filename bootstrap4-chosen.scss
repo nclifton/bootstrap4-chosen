@@ -1,33 +1,26 @@
-//
-// bootstrap-chosen.less
-//
-// An alternate stylesheet for Chosen (http://harvesthq.github.com/chosen/).
-// This one is supposed to integrate better with Bootstrap.
-//
-// Submit bugfixes to: http://github.com/alxlit/bootstrap-chosen
-//
+@import "variables";
 
-@import "bootstrap-chosen-variables.less";
-
-.chosen-select { width: 100%; }
-.chosen-select-deselect { width: 100%; }
+.chosen-select,
+.chosen-select-deselect {
+  width: 100%;
+}
 
 .chosen-container {
   display: inline-block;
-  font-size: @font-size-base;
+  font-size: $font-size-base;
   position: relative;
   vertical-align: middle;
 
   .chosen-drop {
-    background: @chosen-background;
-    border: 1px solid @chosen-drop-border;
-    .border-bottom-radius(@chosen-border-radius);
-    .box-shadow(@chosen-drop-box-shadow);
+    background: $chosen-background;
+    border: 1px solid $chosen-drop-border;
+    @include border-bottom-radius($chosen-border-radius);
+    @include box-shadow($chosen-drop-box-shadow);
     margin-top: -1px;
     position: absolute;
     top: 100%;
     left: -9000px;
-    z-index: @chosen-drop-zindex;
+    z-index: $chosen-drop-zindex;
   }
 
   &.chosen-with-drop .chosen-drop {
@@ -36,7 +29,7 @@
   }
 
   .chosen-results {
-    color: @gray;
+    color: $gray-700;
     margin: 0 4px 4px 0;
     max-height: 240px;
     padding: 0 0 0 4px;
@@ -47,7 +40,7 @@
 
     li {
       display: none;
-      line-height: @line-height-base; // 15px;
+      line-height: $line-height-base; // 15px;
       list-style: none;
       margin: 0;
       padding: 5px 6px;
@@ -74,7 +67,7 @@
       }
 
       &.highlighted {
-        background-color: @link-color;
+        background-color: $link-color;
         background-image: none;
         color: white;
 
@@ -85,12 +78,12 @@
 
       &.disabled-result {
         display: list-item;
-        color: @gray-light;
+        color: $gray-400;
       }
     }
 
     .no-results {
-      background: @gray-lighter;
+      background: $gray-200;
       display: list-item;
     }
   }
@@ -105,7 +98,7 @@
 
     span {
       display: inline-block;
-      height: @line-height-base; // 17px;
+      height: $line-height-base; // 17px;
       text-indent: -5000px;
       width: 9px;
     }
@@ -115,32 +108,32 @@
     bottom: 0;
 
     span {
-      background: url("@{chosen-sprite-path}") no-repeat -4px -3px;
+      background: url($chosen-sprite-path) no-repeat -4px -3px;
     }
   }
 
   .chosen-results-scroll-up {
     span {
-      background: url("@{chosen-sprite-path}") no-repeat -22px -3px;
+      background: url($chosen-sprite-path) no-repeat -22px -3px;
     }
   }
 }
 
 .chosen-container-single {
   .chosen-single {
-    background-color: @chosen-background;
+    background-color: $chosen-background;
     -webkit-background-clip: padding-box;
        -moz-background-clip: padding;
             background-clip: padding-box;
-    border: @chosen-border;
-    .border-top-radius(@chosen-border-radius);
-    .border-bottom-radius(@chosen-border-radius);
-    .box-shadow(@chosen-box-shadow);
-    color: @gray;
+    border: $chosen-border;
+    @include border-top-radius($chosen-border-radius);
+    @include border-bottom-radius($chosen-border-radius);
+    @include box-shadow($chosen-box-shadow);
+    color: $gray-700;
     display: block;
-    height: @chosen-height;
+    height: $chosen-height;
     overflow: hidden;
-    line-height: @chosen-height;
+    line-height: $chosen-height;
     padding: 0 0 0 8px;
     position: relative;
     text-decoration: none;
@@ -149,17 +142,19 @@
     span {
       display: block;
       margin-right: 26px;
-      .text-overflow();
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     abbr {
-      background: url("@{chosen-sprite-path}") right top no-repeat;
+      background: url($chosen-sprite-path) right top no-repeat;
       display: block;
       font-size: 1px;
       height: 10px;
       position: absolute;
       right: 26px;
-      top: ((@chosen-height - 10px) / 2);
+      top: ($chosen-height - 10px) / 2;
       width: 12px;
 
       &:hover {
@@ -180,7 +175,7 @@
       width: 18px;
 
       b {
-        background: url("@{chosen-sprite-path}") no-repeat 0 7px;
+        background: url($chosen-sprite-path) no-repeat 0 7px;
         display: block;
         height: 100%;
         width: 100%;
@@ -189,7 +184,7 @@
   }
 
   .chosen-default {
-    color: @gray-light;
+    color: $gray-400;
   }
 
   .chosen-search {
@@ -197,14 +192,14 @@
     padding: 3px 4px;
     position: relative;
     white-space: nowrap;
-    z-index: @zindex-dropdown;
+    z-index: $zindex-dropdown;
 
     input[type="text"] {
-      background: url("@{chosen-sprite-path}") no-repeat 100% -20px, @chosen-background;
-      border: @chosen-border;
-      .border-top-radius(@chosen-border-radius);
-      .border-bottom-radius(@chosen-border-radius);
-      .box-shadow(@chosen-box-shadow);
+      background: url($chosen-sprite-path) no-repeat 100% -20px, $chosen-background;
+      border: $chosen-border;
+      @include border-top-radius($chosen-border-radius);
+      @include border-bottom-radius($chosen-border-radius);
+      @include box-shadow($chosen-box-shadow);
       margin: 1px 0;
       padding: 4px 20px 4px 4px;
       width: 100%;
@@ -213,7 +208,7 @@
 
   .chosen-drop {
     margin-top: -1px;
-    .border-bottom-radius(@chosen-border-radius);
+    @include border-bottom-radius($chosen-border-radius);
     -webkit-background-clip: padding-box;
        -moz-background-clip: padding;
             background-clip: padding-box;
@@ -222,7 +217,7 @@
 
 .chosen-container-single-nosearch {
   .chosen-search {
-    input {
+    input[type="text"] {
       position: absolute;
       left: -9000px;
     }
@@ -231,11 +226,11 @@
 
 .chosen-container-multi {
   .chosen-choices {
-    background-color: @chosen-background;
-    border: @chosen-border;
-    .border-top-radius(@chosen-multi-border-radius);
-    .border-bottom-radius(@chosen-multi-border-radius);
-    .box-shadow(@chosen-box-shadow);
+    background-color: $chosen-background;
+    border: $chosen-border;
+    @include border-top-radius($chosen-multi-border-radius);
+    @include border-bottom-radius($chosen-multi-border-radius);
+    @include box-shadow($chosen-box-shadow);
     cursor: text;
     height: auto !important;
     height: 1%;
@@ -257,9 +252,9 @@
       input[type="text"] {
         background: transparent !important;
         border: 0 !important;
-        .box-shadow(none);
-        color: @gray;
-        height: @chosen-multi-height - 8px;
+        @include box-shadow(none);
+        color: $gray-700;
+        height: $chosen-multi-height - 8px;
         margin: 0;
         padding: 4px;
         outline: 0;
@@ -274,12 +269,13 @@
       -webkit-background-clip: padding-box;
          -moz-background-clip: padding;
               background-clip: padding-box;
-      background-color: @gray-lighter;
-      border: @chosen-border;
-      .border-top-radius(@chosen-border-radius);
-      .border-bottom-radius(@chosen-border-radius);
-      .box-shadow(@chosen-box-shadow);
-      color: @gray-dark;
+      background-color: $gray-200;
+      border: $chosen-border;
+      @include border-top-radius($chosen-border-radius);
+      @include border-bottom-radius($chosen-border-radius);
+      @include gradient-y(white, $gray-200);
+      @include box-shadow($chosen-box-shadow);
+      color: $gray-900;
       cursor: default;
       line-height: 13px;
       margin: 6px 0 3px 5px;
@@ -287,7 +283,7 @@
       position: relative;
 
       .search-choice-close {
-        background: url("@{chosen-sprite-path}") right top no-repeat;
+        background: url($chosen-sprite-path) right top no-repeat;
         display: block;
         font-size: 1px;
         height: 10px;
@@ -326,17 +322,17 @@
 
 .chosen-container-active {
   .chosen-single {
-    border: @chosen-focus-border;
-    .box-shadow(@chosen-focus-box-shadow);
-    .transition(@chosen-focus-transition);
+    border: $chosen-focus-border;
+    @include box-shadow($chosen-focus-box-shadow);
+    @include transition($chosen-focus-transition);
   }
 
   &.chosen-with-drop .chosen-single {
-    background-color: @input-bg;
-    border: @chosen-focus-border;
-    .border-bottom-radius(0);
-    .box-shadow(@chosen-focus-box-shadow);
-    .transition(@chosen-focus-transition);
+    background-color: $input-bg;
+    border: $chosen-focus-border;
+    @include border-bottom-radius(0);
+    @include box-shadow($chosen-focus-box-shadow);
+    @include transition($chosen-focus-transition);
 
     div {
       background: transparent;
@@ -349,10 +345,10 @@
   }
 
   .chosen-choices {
-    border: @chosen-focus-border;
-    .border-bottom-radius(0);
-    .box-shadow(@chosen-focus-box-shadow);
-    .transition(@chosen-focus-transition);
+    border: $chosen-focus-border;
+    @include border-bottom-radius(0);
+    @include box-shadow($chosen-focus-box-shadow);
+    @include transition($chosen-focus-transition);
 
     .search-field input[type="text"] {
       color: #111 !important;
@@ -360,7 +356,7 @@
   }
 
   &.chosen-with-drop .chosen-choices {
-    .border-bottom-radius(0);
+    @include border-bottom-radius(0);
   }
 }
 
@@ -437,24 +433,9 @@
   }
 
   .chosen-search input[type="text"] {
-    background: url("@{chosen-sprite-path}") no-repeat -28px -20px, @chosen-background;
+    background: url($chosen-sprite-path) no-repeat -28px -20px, $chosen-background;
     direction: rtl;
     padding: 4px 5px 4px 20px;
-  }
-}
-
-.input-group {
-  .chosen-container:last-child {
-    .chosen-single, .chosen-default, .chosen-choices {
-      border-top-left-radius: 0px;
-      border-bottom-left-radius: 0px;
-    }
-  }
-  .chosen-container:not(:last-child) {
-    .chosen-single, .chosen-default, .chosen-choices {
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
-    }
   }
 }
 
@@ -466,7 +447,7 @@
   .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
   .chosen-container .chosen-results-scroll-down span,
   .chosen-container .chosen-results-scroll-up span {
-    background-image: url("@{chosen-sprite-retina-path}") !important;
+    background-image: url($chosen-sprite-retina-path) !important;
     background-size: 52px 37px !important;
     background-repeat: no-repeat !important;
   }

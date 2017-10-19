@@ -1,29 +1,44 @@
-# bootstrap-chosen (less/sass)
+# bootstrap4-chosen
 
-![](https://github.com/alxlit/bootstrap-chosen/raw/master/example.png)
+Based on the wonderful [bootstrap-chosen](https://github.com/alxlit/bootstrap-chosen) by alxlit, this aims
+matching your [Chosen 1.0](http://harvesthq.github.com/chosen/) elements with bootstrap 4 styling.
 
-An alternate stylesheet for [Chosen 1.0](http://harvesthq.github.com/chosen/). This
-one is supposed to integrate better with [Bootstrap 3.0](http://getbootstrap.com/).
+[![Demo](demo.PNG)](#)
 
-[Here's the example page](http://alxlit.github.io/bootstrap-chosen/).
+### Installation
 
-How you add `bootstrap-chosen.less` to your build process is up to you. Just keep
-in mind that it needs access to `variables.less` and `mixins.less`.
+Get it with your favourite package manager:
 
-You can tinker with the example page by:
+`npm i bootstrap4-chosen`, `yarn add bootstrap4-chosen` or what ever floats your boat.
 
-```
-$ git clone https://github.com/alxlit/bootstrap-chosen
-$ cd bootstrap-chosen
-bootstrap-chosen $ git clone --depth=1 https://github.com/twbs/bootstrap
-bootstrap-chosen $ vi bootstrap/less/bootstrap.less
+### Usage
 
-// Add this to the bottom
-@import "../../bootstrap-chosen.less";
+You can use `bootstrap4-chosen` by importing its source files after importing
+the bootstrap 4 variables.
 
-bootstrap-chosen $ lessc bootstrap/less/bootstrap.less > bootstrap.css
-bootstrap-chosen $ firefox example.html
+```scss
+// Bootstrap 4 Sources
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap4-chosen/bootstrap4-chosen";
 ```
 
-License: [MIT](https://en.wikipedia.org/wiki/MIT_License)
+#### Prebuilt CSS
 
+You can find a plain css version (using default variables) as bootstrap4-chosen.css.
+
+### Examples
+
+You can browse some examples in the attached example.html file.
+
+### Pitfalls
+
+- bootstrap4-chosen, unlike bootstrap-chosen, does not include Less sources.
+- bootstrap4-chosen will not work with bootstrap 3.
+- bootstrap4-chosen works at least with bootstrap 4 beta
+
+- Always make sure to include bootstrap 4 scss variables, mixins and functions or your scss won't compile.
+This way, styling is really dependant on your variable setup.
+
+### License
+
+The MIT License

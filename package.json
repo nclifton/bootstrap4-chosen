@@ -1,16 +1,29 @@
 {
-  "name": "bootstrap-chosen",
+  "name": "bootstrap4-chosen",
   "version": "1.0.0",
-  "description": "An alternate stylesheet for Chosen that integrates with Bootstrap. ",
+  "description": "An alternate stylesheet for Chosen that integrates with Bootstrap 4.",
   "repository": {
     "type": "git",
-    "url": "alxlit/bootstrap-chosen"
+    "url": "pascalebeier/bootstrap4-chosen"
   },
-  "homepage": "https://github.com/alxlit/bootstrap-chosen",
+  "scripts": {
+    "dev": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --watch-poll --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "homepage": "https://github.com/pascalebeier/bootstrap4-chosen",
   "license": "MIT",
   "keywords": [
     "bootstrap",
+    "bootstrap4",
     "chosen",
-    "bootstrap-chosen"
-  ]
+    "bootstrap4-chosen"
+  ],
+  "devDependencies": {
+    "bootstrap": "^4.0.0-beta",
+    "cross-env": "^5.1.0",
+    "laravel-mix": "^1.5.1"
+  }
 }
